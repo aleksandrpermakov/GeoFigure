@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace GeoFigure
 {
-    internal abstract class GeoFigure
+    public abstract class GeoFigure
     {
         private string name;
 
-        public string Name
+        public string GetName
         {
             get { return name; }
             //set { name = value; }
@@ -23,29 +23,48 @@ namespace GeoFigure
         {
             return name;
         }
-        public abstract float GetPerimetr();
+        public abstract int GetPerimetr();
+        public abstract void OutPutFigureToFile();
     }
     public class FourAngle : GeoFigure
     {
-        float a;
-        float b;
-        float c;
-        float d;
-        public FourAngle(string name, float a = 1, float b = 1,
-            float c = 1, float d = 1) : base(name)
+        int a;
+        int b;
+        int c;
+        int d;
+        
+        public FourAngle(string name, int a = 1, int b = 1,
+            int c = 1, int d = 1) : base(name)
         {
-            this.a = a; this.b = b;
-            this.c = c; this.d = d;
+            List<int> sides = new List<int>() { a, b, c, d };
+            int maxSide = sides.Max();
+            if (maxSide > sides.Sum() - maxSide) //если максимальная сторона больше чем сумма остальных сторон
+            {
+                Console.WriteLine("Вы задали не корректные стороны четырехугольника!");
+            }
+            else
+            {
+                this.a = a; this.b = b;
+                this.c = c; this.d = d;
+                
+            }
+            
         }
-        public override float GetPerimetr()
+       
+        public override int GetPerimetr()
         {
             return a + b + c + d;
         }
         public override string ToString()
         {
-            return $"{Name} сторона a = {a}, сторона b = {b}, " +
+            return $"{GetName} сторона a = {a}, сторона b = {b}, " +
                 $"сторона c = {c}, сторона d = {d}. Периметр = {this.GetPerimetr()}";
         }
+        public override void  OutPutFigureToFile()
+        {
+            this.ToString();//заглушка
+        }
+
     }
 }
 
