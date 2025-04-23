@@ -111,7 +111,7 @@ namespace GeoFigure
         public override string ToString()
         {
             return $"{GetName} сторона a = {a}, сторона b = {b}, " +
-                $"сторона c = {c}. Периметр = {this.GetPerimetr()}";
+                $"сторона c = {c}. Периметр = {this.GetPerimetr()} , Площадь = {this.GetArea()}";
         }
         public override double GetArea()
         {
@@ -122,7 +122,7 @@ namespace GeoFigure
         }
 
     }
-    public class Circle : GeoFigure
+    public class Circle : GeoFigure //круг
     {
         int d; //диаметр
         public Circle(string name, int d = 1) : base(name)
@@ -138,6 +138,10 @@ namespace GeoFigure
         public override double GetArea()
         { 
             return  Math.PI * (this.d / 2) * (this.d / 2); //2Pr^2
+        }
+        public override string ToString()
+        {
+            return $"{GetName} диаметр = {d}, Периметр = {this.GetPerimetr()}, Площадь = {this.GetArea()} ";
         }
      }
 }
