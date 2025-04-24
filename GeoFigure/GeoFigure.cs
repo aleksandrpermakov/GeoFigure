@@ -79,15 +79,15 @@ namespace GeoFigure
             Console.WriteLine("Плащадь верна, при условии , что это квадрат или прямоугольник!");
             return this.a * this.b; 
         }
-        //public override void  OutPutFigureToFile()
-        //{
-        //    string path = "Table.txt";
-        //    string content = "content";
-        //    StreamWriter sr = new StreamWriter(path, content, true);
-        //    sr.Write(content);
-        //    sr.Close();
-        //    this.ToString();//заглушка
-        //}
+        public  void OutPutFigureToFile()
+        {
+            string path = "Table.txt";
+            string content = "content";
+            System.IO.StreamWriter sr = new StreamWriter(path,  true);
+            sr.Write(content);
+            sr.Close();
+           // this.ToString();//заглушка
+        }
 
     }
     public class Triangle : GeoFigure //треугольник
