@@ -24,10 +24,24 @@ namespace GeoFigure
             catch
             {
                 Console.WriteLine("Вы ввели не корректное значение");
+                
+
             }
+
             if (figure == 1)
             {
                 FourAngle fourAngle = new FourAngle("fourAngle");
+                Console.WriteLine("Введите имя для четырехугольника:");
+                fourAngle.SetName(Console.ReadLine());
+                Console.WriteLine("Введите сторону а четырехугольника:");
+                fourAngle.SetA(int.Parse(Console.ReadLine()));
+                Console.WriteLine("Введите сторону b четырехугольника:");
+                fourAngle.SetB(int.Parse(Console.ReadLine()));
+                Console.WriteLine("Введите сторону c четырехугольника:");
+                fourAngle.SetC(int.Parse(Console.ReadLine()));
+                Console.WriteLine("Введите сторону d четырехугольника:");
+                fourAngle.SetD(int.Parse(Console.ReadLine()));
+
             }
             if (figure == 2)
             {

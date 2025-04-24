@@ -14,8 +14,9 @@ namespace GeoFigure
         public string GetName
         {
             get { return name; }
-            //set { name = value; }
+           
         }
+        public void SetName(string name) { this.name = name; }
         public GeoFigure(string name = "figure")
         {
             this.name = name;
@@ -34,6 +35,7 @@ namespace GeoFigure
         int b;
         int c;
         int d;
+        string name;
 
         public int GetA() { return a; }
         public int GetB() { return b; }
@@ -44,6 +46,7 @@ namespace GeoFigure
         public void SetB (int b ) { this.b = b; }
         public void SetC(int c) { this.c = c; }
         public void SetD(int d) { this.d = d; }
+        
         public FourAngle(string name, int a = 1, int b = 1,
             int c = 1, int d = 1) : base(name)
         {
@@ -61,7 +64,7 @@ namespace GeoFigure
             }
 
         }
-
+       // public void SetName(string name) { this.name = name; }
         public override double GetPerimetr()
         {
             return a + b + c + d;
