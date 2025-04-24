@@ -102,7 +102,24 @@ namespace GeoFigure
         public Triangle(string name, int a = 1, int b = 1,
             int c = 1) : base(name)
         {
-            this.a = a; this.b = b; this.c = c;
+            List<int> sides = new List<int>() { a, b, c };
+            int maxSide = sides.Max();
+            if (maxSide > sides.Sum() - maxSide) //если максимальная сторона больше чем сумма остальных сторон
+            {
+                Console.WriteLine("Вы задали не корректные стороны треугольника!");
+            }
+            sides.Sort(); //сортировка по возрастанию
+            sides.Reverse(); // меняем расположение элементов на обратное (по убыванию)
+
+            if (maxSide < (sides[1] - sides[2]))
+            {
+                Console.WriteLine("Вы задали не корректные стороны треугольника!");
+            }
+            else
+            {
+                this.a = a; this.b = b; this.c = c;
+            }
+
         }
         public override double GetPerimetr()
         {
