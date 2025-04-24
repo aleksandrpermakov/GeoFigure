@@ -11,7 +11,34 @@ namespace GeoFigure
     {
         static void Main(string[] args)
         {
-            FourAngle fourAngle = new FourAngle("romb",28,3,3,4);
+           
+            Console.WriteLine("Выберите фигуру, которую хотите создать:");
+            Console.WriteLine("Четырехугольник - 1");
+            Console.WriteLine("Треугольник - 2");
+            Console.WriteLine("Круг - 3");
+            int figure = 0;
+            try
+            {
+                figure = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Вы ввели не корректное значение");
+            }
+            if (figure == 1)
+            {
+                FourAngle fourAngle = new FourAngle("fourAngle");
+            }
+            if (figure == 2)
+            {
+                Triangle triangle = new Triangle("triangle");
+            }
+            if (figure == 3)
+            {
+                Circle circle = new Circle("circle");
+
+            }
+
             //List<FourAngle> fourAngles = new List<FourAngle>();
             //string filename = "Figures.txt";
             //string myDocs = FSWorker.myDocs;

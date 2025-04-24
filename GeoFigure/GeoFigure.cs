@@ -16,7 +16,7 @@ namespace GeoFigure
             get { return name; }
             //set { name = value; }
         }
-        public GeoFigure(string name)
+        public GeoFigure(string name = "figure")
         {
             this.name = name;
         }
