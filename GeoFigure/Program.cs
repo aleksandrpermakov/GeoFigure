@@ -8,7 +8,14 @@ namespace GeoFigure
 {
 
     internal class Program
+
     {
+        static List<GeoFigure> listFigure = new List<GeoFigure>();
+        static public List<GeoFigure> AddlistFigure(GeoFigure figure) //метод добавления фигур в список
+        {
+            listFigure.Add(figure);
+            return listFigure;
+        }
         static void Main(string[] args)
         {
            
@@ -16,6 +23,7 @@ namespace GeoFigure
             Console.WriteLine("Четырехугольник - 1");
             Console.WriteLine("Треугольник - 2");
             Console.WriteLine("Круг - 3");
+            
             int figure = 0;
             try
             {
@@ -41,44 +49,37 @@ namespace GeoFigure
                 fourAngle.SetC(int.Parse(Console.ReadLine()));
                 Console.WriteLine("Введите сторону d четырехугольника:");
                 fourAngle.SetD(int.Parse(Console.ReadLine()));
+                AddlistFigure(fourAngle);
+                fourAngle.OutPutFigureToFile();
 
             }
             if (figure == 2)
             {
                 Triangle triangle = new Triangle("triangle");
+                Console.WriteLine("Введите имя для Треугольника:");
+                triangle.SetName(Console.ReadLine());
+                Console.WriteLine("Введите сторону а треугольника:");
+                triangle.SetA(int.Parse(Console.ReadLine()));
+                Console.WriteLine("Введите сторону b треугольника:");
+                triangle.SetB(int.Parse(Console.ReadLine()));
+                Console.WriteLine("Введите сторону c треугольника:");
+                triangle.SetC(int.Parse(Console.ReadLine()));
+                AddlistFigure(triangle);
+                triangle.OutPutFigureToFile();
             }
             if (figure == 3)
             {
                 Circle circle = new Circle("circle");
-
+                Console.WriteLine("Введите имя для Круга:");
+                circle.SetName(Console.ReadLine());
+                Console.WriteLine("Введите диаметр круга:");
+                circle.SetD(int.Parse(Console.ReadLine()));
+                AddlistFigure(circle);
+                circle.OutPutFigureToFile();
             }
-
-            //List<FourAngle> fourAngles = new List<FourAngle>();
-            //string filename = "Figures.txt";
-            //string myDocs = FSWorker.myDocs;
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    var number = new Random((int)DateTime.Now.Ticks);
-            //    var _figure = new FourAngle($"Фигура №{i + 1}",
-            //        1 + number.Next(9),
-            //        1 + number.Next(8) + (int)number.NextDouble(),
-            //        1 + number.Next(9),
-            //        1 + number.Next(9));
-            //    fourAngles.Add(_figure);
-            //    FSWorker.WriteStrToFile
-            //        ($"{myDocs}\\{filename}", _figure.ToString());
-            //}
-
-            //Console.WriteLine($"Мои документы - {FSWorker.myDocs}");
-            //foreach (string filename in FSWorker.ContentOfDir(FSWorker.myDocs))
-            //{
-            //    Console.WriteLine(filename);
-            //}
-            //Console.WriteLine($"Рабочий стол - {FSWorker.myDesktop}");
-            //foreach (string filename in FSWorker.ContentOfDir(FSWorker.myDesktop))
-            //{
-            //    Console.WriteLine(filename);
-            //}
+            else
+            { Console.WriteLine("Вы ввели не верное значение:"); }
+ 
         }
     }
     

@@ -26,7 +26,7 @@ namespace GeoFigure
             return name;
         }
         public abstract double GetPerimetr();//периметр
-        // public abstract void OutPutFigureToFile();
+        public abstract void OutPutFigureToFile(); //запись фигуры в фаил
         public abstract double GetArea(); //площадь
     }
     public class FourAngle : GeoFigure //четырехугольник
@@ -79,14 +79,13 @@ namespace GeoFigure
             Console.WriteLine("Плащадь верна, при условии , что это квадрат или прямоугольник!");
             return this.a * this.b; 
         }
-        public  void OutPutFigureToFile()
+        public override void OutPutFigureToFile()
         {
-            string path = "Table.txt";
-            string content = "content";
+            string path = "figure.txt";
+            string content = this.ToString();
             System.IO.StreamWriter sr = new StreamWriter(path,  true);
             sr.Write(content);
-            sr.Close();
-           // this.ToString();//заглушка
+            sr.Close();         
         }
 
     }
@@ -140,6 +139,14 @@ namespace GeoFigure
             area = Math.Sqrt((p_ * (p_ - this.a) * (p_ - this.b) * (p_ - this.c)));
             return area;
         }
+        public override void OutPutFigureToFile()
+        {
+            string path = "figure.txt";
+            string content = this.ToString();
+            System.IO.StreamWriter sr = new StreamWriter(path, true);
+            sr.Write(content);
+            sr.Close();
+        }
 
     }
     public class Circle : GeoFigure //круг
@@ -163,6 +170,14 @@ namespace GeoFigure
         {
             return $"{GetName} диаметр = {d}, Периметр = {this.GetPerimetr()}, Площадь = {this.GetArea()} ";
         }
-     }
+        public override void OutPutFigureToFile()
+        {
+            string path = "figure.txt";
+            string content = this.ToString();
+            System.IO.StreamWriter sr = new StreamWriter(path, true);
+            sr.Write(content);
+            sr.Close();
+        }
+    }
 }
 
